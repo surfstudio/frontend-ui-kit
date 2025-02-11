@@ -2,22 +2,56 @@ import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	children: ReactNode;
-	className?: string;
+	isLoading?: boolean;
+	buttonClassName?: string;
+	containerClassName?: string;
+	slots?: {
+		prefix?: ReactNode;
+		content?: ReactNode;
+		suffix?: ReactNode;
+		loader?: ReactNode;
+	};
+
 }
 
 export const Button = ({
 	children,
-	className = '',
 	type = 'button',
+	disabled = false,
+	isLoading = false,
+	buttonClassName = '',
+	containerClassName = '',
+	slots = {},
+	onClick,
 	...props
 }: ButtonProps) => {
+	const {
+		prefix: Prefix,
+		content: Content,
+		suffix: Suffix,
+		loader: Loader
+	} = slots;
+
 	return (
 		<button
 			type={type}
-			className={className}
+			className={buttonClassName}
+			disabled={disabled || isLoading}
+			onClick={onClick}
 			{...props}
 		>
-			{children}
+			<div className={containerClassName}>
+				{isLoading ? (
+					<>{Loader}</>
+				) : (
+					<>
+						{Prefix}
+						{Content}
+						{Suffix}
+					</>
+				)}
+
+			</div>
 		</button>
 	);
 };
