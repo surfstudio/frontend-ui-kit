@@ -35,12 +35,12 @@ export const Button = ({
 	return (
 		<button
 			type={type}
-			className={buttonClassName}
+			className={`Button ${buttonClassName}`}
 			disabled={disabled || isLoading}
 			onClick={onClick}
 			{...props}
 		>
-			<div className={containerClassName}>
+			<div className={`ButtonContainer ${containerClassName}`}>
 				{isLoading ? (
 					<>{Loader}</>
 				) : (
