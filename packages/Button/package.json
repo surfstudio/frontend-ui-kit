@@ -2,6 +2,9 @@
   "name": "@surf-dev/ui-button",
   "version": "0.1.1",
   "description": "Surf base button",
+    "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "dependencies": {
     "react": "^18.0.0"
@@ -27,5 +30,6 @@
   },
   "author": "SurfStudio LLC",
   "license": "MIT",
-  "homepage": "https://github.com/surfstudio/frontend-ui-kit#readme"
+  "homepage": "https://github.com/surfstudio/frontend-ui-kit#readme",
+  "gitHead": "c103b5ec777f94ecce2c83c1f58fb3e35cf4bbd3"
 }
