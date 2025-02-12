@@ -9,9 +9,8 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import { Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx } from "react/jsx-runtime";
 export const Button = (_a) => {
-    var { children, type = 'button', disabled = false, isLoading = false, buttonClassName = '', containerClassName = '', slots = {}, onClick } = _a, props = __rest(_a, ["children", "type", "disabled", "isLoading", "buttonClassName", "containerClassName", "slots", "onClick"]);
-    const { prefix: Prefix, content: Content, suffix: Suffix, loader: Loader } = slots;
-    return (_jsx("button", Object.assign({ type: type, className: `Button ${buttonClassName}`, disabled: disabled || isLoading, onClick: onClick }, props, { children: _jsx("div", { className: `ButtonContainer ${containerClassName}`, children: isLoading ? (_jsx(_Fragment, { children: Loader })) : (_jsxs(_Fragment, { children: [Prefix, Content, Suffix] })) }) })));
+    var { children, type = 'button', disabled = false, isLoading = false, buttonClassName = '', containerClassName = '', onClick } = _a, props = __rest(_a, ["children", "type", "disabled", "isLoading", "buttonClassName", "containerClassName", "onClick"]);
+    return (_jsx("button", Object.assign({ type: type, className: `Button ${buttonClassName}`, disabled: disabled || isLoading, onClick: onClick }, props, { children: _jsx("div", { className: `ButtonContainer ${containerClassName}`, children: children }) })));
 };

@@ -1,7 +1,8 @@
 {
   // "files": [],
   "references": [
-    {"path": "./Button/tsconfig.esm.json"}
+    {"path": "./Button/tsconfig.esm.json"},
+    {"path": "./Radio/tsconfig.esm.json"}
   ],
   "compilerOptions": {
     "target": "es6",

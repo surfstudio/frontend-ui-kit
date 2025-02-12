@@ -14,8 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Button = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const Button = (_a) => {
-    var { children, type = 'button', disabled = false, isLoading = false, buttonClassName = '', containerClassName = '', slots = {}, onClick } = _a, props = __rest(_a, ["children", "type", "disabled", "isLoading", "buttonClassName", "containerClassName", "slots", "onClick"]);
-    const { prefix: Prefix, content: Content, suffix: Suffix, loader: Loader } = slots;
-    return ((0, jsx_runtime_1.jsx)("button", Object.assign({ type: type, className: `Button ${buttonClassName}`, disabled: disabled || isLoading, onClick: onClick }, props, { children: (0, jsx_runtime_1.jsx)("div", { className: `ButtonContainer ${containerClassName}`, children: isLoading ? ((0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: Loader })) : ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [Prefix, Content, Suffix] })) }) })));
+    var { children, type = 'button', disabled = false, isLoading = false, buttonClassName = '', containerClassName = '', onClick } = _a, props = __rest(_a, ["children", "type", "disabled", "isLoading", "buttonClassName", "containerClassName", "onClick"]);
+    return ((0, jsx_runtime_1.jsx)("button", Object.assign({ type: type, className: `Button ${buttonClassName}`, disabled: disabled || isLoading, onClick: onClick }, props, { children: (0, jsx_runtime_1.jsx)("div", { className: `ButtonContainer ${containerClassName}`, children: children }) })));
 };
 exports.Button = Button;

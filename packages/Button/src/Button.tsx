@@ -5,13 +5,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	isLoading?: boolean;
 	buttonClassName?: string;
 	containerClassName?: string;
-	slots?: {
-		prefix?: ReactNode;
-		content?: ReactNode;
-		suffix?: ReactNode;
-		loader?: ReactNode;
-	};
-
 }
 
 export const Button = ({
@@ -21,17 +14,9 @@ export const Button = ({
 	isLoading = false,
 	buttonClassName = '',
 	containerClassName = '',
-	slots = {},
 	onClick,
 	...props
 }: ButtonProps) => {
-	const {
-		prefix: Prefix,
-		content: Content,
-		suffix: Suffix,
-		loader: Loader
-	} = slots;
-
 	return (
 		<button
 			type={type}
@@ -41,16 +26,7 @@ export const Button = ({
 			{...props}
 		>
 			<div className={`ButtonContainer ${containerClassName}`}>
-				{isLoading ? (
-					<>{Loader}</>
-				) : (
-					<>
-						{Prefix}
-						{Content}
-						{Suffix}
-					</>
-				)}
-
+				{children}
 			</div>
 		</button>
 	);
