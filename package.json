@@ -1,0 +1,31 @@
+{
+  "name": "@surf-dev/frontend-tools",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "build:packages:esm": "tsc -b ./packages/tsconfig.esm.json",
+    "build:packages:cjs": "tsc -b ./packages/tsconfig.cjs.json",
+    "build:packages": "npm run clean:all && npm run deps:packages && npm run build:packages:esm && npm run build:packages:cjs && npm run deps:global",
+    "clean:all": "npm run clean:dist && npm run clean:modules",
+    "clean:dist": "rimraf --glob ./packages/*/dist",
+    "clean:modules": "rimraf --glob ./packages/*/node_modules",
+    "deps:all": "npm run deps:global && npm run deps:packages",
+    "deps:global": "npm i",
+    "deps:packages": "npm i --workspaces"
+  },
+  "dependencies": {
+    "lerna": "8.0.0",
+    "prettier": "^3.2.5",
+    "rimraf": "5.0.1"
+  },
+  "homepage": "https://github.com/surfstudio/frontend-ui-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/surfstudio/frontend-ui-kit.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}

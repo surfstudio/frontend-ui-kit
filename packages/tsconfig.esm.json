@@ -1,0 +1,21 @@
+{
+  "files": [],
+  "references": [],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext"
+    ],
+    "declaration": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "composite": true
+  }
+}
