@@ -1,9 +1,9 @@
 'use client';
 
-import type { ReactNode } from 'react';
-import React, { useId, forwardRef, useState } from 'react';
+import type { ReactNode, InputHTMLAttributes } from 'react';
+import { useId, forwardRef, useState } from 'react';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: string;
     type?: string;
     error?: string;
