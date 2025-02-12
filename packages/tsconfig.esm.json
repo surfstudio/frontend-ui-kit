@@ -1,13 +1,6 @@
 {
   "files": [],
-  "references": [
-    {
-      "path": "./config-prettier/tsconfig.esm.json"
-    },
-        {
-      "path": "./config-stylelint/tsconfig.esm.json"
-    },
-  ],
+  "references": [],
   "compilerOptions": {
     "target": "es6",
     "module": "es6",
