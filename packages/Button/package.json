@@ -1,8 +1,8 @@
 {
   "name": "@surf-dev/ui-button",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Surf base button",
-    "publishConfig": {
+  "publishConfig": {
     "access": "public"
   },
   "main": "index.js",
