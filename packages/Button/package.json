@@ -14,6 +14,7 @@
     "lint-staged": "15.0.2"
   },
   "files": [
+    "src",
     "dist/esm",
     "dist/cjs",
     "./CHANGELOG.md"
