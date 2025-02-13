@@ -1,0 +1,30 @@
+@use "@styles/variables";
+
+.textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid variables.$secondary-color;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: border-color 0.2s ease-in-out;
+
+  &:focus {
+    outline: none;
+    border-color: variables.$primary-color;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+
+  &.error {
+    border-color: variables.$danger-color;
+
+    &:focus {
+      border-color: variables.$danger-color;
+    }
+  }
+
+  &.disabled {
+    background-color: variables.$light-gray-color;
+    cursor: not-allowed;
+    border-color: variables.$gray-color;
+  }
+}
