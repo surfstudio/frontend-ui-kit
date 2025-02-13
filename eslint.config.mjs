@@ -57,7 +57,7 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": ["warn"],
       "react/react-in-jsx-scope": ["off"],
       "react/jsx-uses-react": ["off"],
-      "react/jsx-props-no-spreading": ["warn"],
+      "react/jsx-props-no-spreading": ["off"],
       "react/no-unescaped-entities": ["off"],
       "import/no-dynamic-require": "warn",
       "import/no-nodejs-modules": "warn",

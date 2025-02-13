@@ -2,6 +2,8 @@
 
 import type { ReactNode, InputHTMLAttributes } from "react";
 import { useId, forwardRef, useState } from "react";
+import cls from "./Input.module.scss";
+import cn from "classnames";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -31,15 +33,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <div className={`input-wrapper ${inputClassName}}}`}>
+      <div className={cn(cls.inputWrapper, inputClassName)}>
         {label && (
-          <label htmlFor={inputID} className="input-label">
+          <label htmlFor={inputID} className={cls.inputLabel}>
             {label}
           </label>
         )}
-        <div className="input-inner">
+        <div className={cls.inputInner}>
           <input
-            className="input"
+            className={cn(cls.input, { [cls.error]: error })}
             ref={ref}
             type={password ? passwordType : type}
             {...props}
@@ -51,7 +53,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
         </div>
-        {error && <p className="input-error">{error}</p>}
+        {error && <p className={cls.inputError}>{error}</p>}
       </div>
     );
   },
