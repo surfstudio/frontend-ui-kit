@@ -12,7 +12,6 @@ const meta: Meta<typeof Drawer> = {
 export default meta;
 type Story = StoryObj<typeof Drawer>;
 
-// Компоненты с большой буквы
 const WithoutHeaderDemo = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -54,7 +53,6 @@ export const OnlyContent: Story = {
   render: () => <OnlyContentDemo />,
 };
 
-// Отдельный компонент для демо
 const DrawerDemo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
