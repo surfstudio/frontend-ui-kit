@@ -13,7 +13,6 @@
         "deps:all": "npm run deps:global && npm run deps:packages",
         "deps:global": "npm i",
         "deps:packages": "npm i --workspaces",
-        "start:ui-library": "lerna run --scope @surf-dev/ui-kit storybook --stream",
         "storybook": "storybook dev -p 6006",
         "lint:fix": "lerna run lint:fix --stream",
         "test": "NODE_ENV=test jest --coverage",
