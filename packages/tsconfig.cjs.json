@@ -1,5 +1,4 @@
 {
-  // "files": [],
   "references": [
     {"path": "./Button/tsconfig.esm.json"},
     {"path": "./Input/tsconfig.esm.json"},
@@ -7,7 +6,8 @@
     {"path": "./Select/tsconfig.esm.json"},
     {"path": "./Tabs/tsconfig.esm.json"},
     {"path": "./TextArea/tsconfig.esm.json"},
-    {"path": "./Typography/tsconfig.esm.json"}],
+    {"path": "./Typography/tsconfig.esm.json"}
+  ],
   "compilerOptions": {
     "target": "es6",
     "module": "CommonJS",

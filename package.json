@@ -6,7 +6,7 @@
     "scripts": {
         "build:packages:esm": "tsc -b ./packages/tsconfig.esm.json",
         "build:packages:cjs": "tsc -b ./packages/tsconfig.cjs.json",
-        "build:packages": "npm run clean:all && npm run deps:packages && npm run build:packages:esm && npm run build:packages:cjs && npm run deps:global",
+        "build:packages": "npm run update-refs && npm run clean:all && npm run deps:packages && npm run build:packages:esm && npm run build:packages:cjs && npm run deps:global",
         "clean:dist": "rimraf --glob ./packages/*/dist",
         "clean:modules": "rimraf --glob ./packages/*/node_modules",
         "clean:all": "npm run clean:dist && npm run clean:modules",
@@ -16,7 +16,9 @@
         "storybook": "storybook dev -p 6006",
         "lint:fix": "lerna run lint:fix --stream",
         "test": "NODE_ENV=test jest --coverage",
-        "release": "lerna publish --yes"
+        "release": "lerna publish --yes",
+        "create": "node create-component.js",
+        "update-refs": "node update-tsconfig-refs.js"
     },
     "dependencies": {
         "react": "^18.3.1",
