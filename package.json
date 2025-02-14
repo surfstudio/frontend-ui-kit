@@ -1,73 +1,82 @@
 {
-  "name": "@surf-dev/frontend-tools",
-  "version": "0.1.0",
-  "description": "",
-  "private": true,
-  "scripts": {
-    "start:ui-library": "lerna run --scope @surf-dev/ui-library storybook --stream",
-    "lint:fix": "lerna run lint:fix --stream",
-    "build": "lerna run build --stream",
-    "test": "NODE_ENV=test jest --coverage",
-    "prepare": "husky install && npm build",
-    "release": "lerna publish --yes"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^7.0.2",
-    "vite": "^5.4.14"
-  },
-  "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.2",
-    "@eslint/js": "^9.15.0",
-    "@laynezh/vite-plugin-lib-assets": "^0.5.26",
-    "@storybook/addon-essentials": "^8.4.5",
-    "@storybook/addon-interactions": "^8.4.5",
-    "@storybook/addon-onboarding": "^8.4.5",
-    "@storybook/blocks": "^8.4.5",
-    "@storybook/react": "^8.4.5",
-    "@storybook/react-vite": "^8.4.5",
-    "@storybook/test": "^8.4.5",
-    "@types/node": "^22.9.3",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3",
-    "eslint": "^9.15.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
-    "eslint-plugin-storybook": "^0.11.1",
-    "globals": "^15.12.0",
-    "husky": "^9.1.7",
-    "lerna": "^8.1.9",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3",
-    "sass": "^1.81.0",
-    "sass-embedded": "^1.81.0",
-    "storybook": "^8.4.5",
-    "typescript": "~5.6.2",
-    "typescript-eslint": "^8.15.0",
-    "vite-plugin-dts": "^4.3.0",
-    "vite-plugin-lib-inject-css": "^2.1.1"
-  },
-  "lint-staged": {
-    "packages/*/src/**/*.{ts,tsx,scss}": [
-      "prettier --write",
-      "eslint -c eslint.config.mjs --fix"
+    "name": "@surf-dev/ui-kit",
+    "version": "0.1.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "build:packages:esm": "tsc -b ./packages/tsconfig.esm.json",
+        "build:packages:cjs": "tsc -b ./packages/tsconfig.cjs.json",
+        "build:packages": "npm run clean:all && npm run deps:packages && npm run build:packages:esm && npm run build:packages:cjs && npm run deps:global",
+        "clean:dist": "rimraf --glob ./packages/*/dist",
+        "clean:modules": "rimraf --glob ./packages/*/node_modules",
+        "clean:all": "npm run clean:dist && npm run clean:modules",
+        "deps:all": "npm run deps:global && npm run deps:packages",
+        "deps:global": "npm i",
+        "deps:packages": "npm i --workspaces",
+        "start:ui-library": "lerna run --scope @surf-dev/ui-kit storybook --stream",
+        "storybook": "storybook dev -p 6006",
+        "lint:fix": "lerna run lint:fix --stream",
+        "test": "NODE_ENV=test jest --coverage",
+        "release": "lerna publish --yes"
+    },
+    "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^7.0.2",
+        "rimraf": "5.0.1"
+    },
+    "devDependencies": {
+        "@chromatic-com/storybook": "^3.2.2",
+        "@eslint/js": "^9.15.0",
+        "@laynezh/vite-plugin-lib-assets": "^0.5.26",
+        "@storybook/addon-essentials": "^8.4.5",
+        "@storybook/addon-interactions": "^8.4.5",
+        "@storybook/addon-onboarding": "^8.4.5",
+        "@storybook/blocks": "^8.4.5",
+        "@storybook/react": "^8.4.5",
+        "@storybook/react-vite": "^8.5.5",
+        "@storybook/test": "^8.4.5",
+        "@types/node": "^22.9.3",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "@vitejs/plugin-react": "^4.3.4",
+        "eslint": "^9.15.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-import-resolver-typescript": "^3.6.3",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "eslint-plugin-react": "^7.37.2",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "eslint-plugin-react-refresh": "^0.4.14",
+        "eslint-plugin-storybook": "^0.11.1",
+        "globals": "^15.12.0",
+        "husky": "^9.1.7",
+        "lerna": "^8.1.9",
+        "lint-staged": "^15.2.10",
+        "prettier": "^3.3.3",
+        "sass": "^1.81.0",
+        "sass-embedded": "^1.81.0",
+        "storybook": "^8.4.5",
+        "typescript": "~5.6.2",
+        "typescript-eslint": "^8.15.0",
+        "vite": "^6.1.0",
+        "vite-plugin-dts": "^4.3.0",
+        "vite-plugin-lib-inject-css": "^2.1.1"
+    },
+    "lint-staged": {
+        "packages/*/src/**/*.{ts,tsx,scss}": [
+            "prettier --write",
+            "eslint -c eslint.config.mjs --fix"
+        ]
+    },
+    "homepage": "https://github.com/surfstudio/frontend-ui-kit",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/surfstudio/frontend-ui-kit.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "workspaces": [
+        "packages/*"
     ]
-  },
-  "homepage": "https://github.com/surfstudio/frontend-ui-kit",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/surfstudio/frontend-ui-kit.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ]
 }
