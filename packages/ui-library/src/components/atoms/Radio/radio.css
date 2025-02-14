@@ -1,0 +1,109 @@
+.radio {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radioLabel {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.radioLabel:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.radioLabelContentContainer {
+    margin-left: 12px;
+}
+
+.radioLabelTitle {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.radioLabelText {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Стили для кастомного radio button */
+.radio input[type="radio"] + .radioLabel::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.radio input[type="radio"]:checked + .radioLabel::before {
+    border-color: #1677ff;
+    background: #1677ff;
+    box-shadow: inset 0 0 0 4px #fff;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+}
+
+/* Стили для bordered и extra контента */
+.radio[data-bordered="true"] .radioLabel {
+    border: 1px solid #e6e6e6;
+    margin-bottom: 8px;
+}
+
+.radio[data-bordered="true"] .radioLabel:hover {
+    border-color: #1677ff;
+}
+
+.radioExtra {
+    margin-top: 8px;
+    padding: 12px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+}
+
+.extraContent {
+    color: #666;
+}
+
+.extraContent .price {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1677ff;
+    margin-bottom: 8px;
+}
+
+.extraContent ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.extraContent li {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+/* Стили для выбранного состояния с border */
+.radio input[type="radio"]:checked + .radioLabel {
+    border-color: #1677ff;
+    background-color: #f0f7ff;
+}
