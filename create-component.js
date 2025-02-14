@@ -13,7 +13,6 @@ if (!componentName) {
 
 const toKebabCase = (str) => str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 
-// Преобразование в CamelCase
 const toCamelCase = (str) => str.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
 
 const packageName = toKebabCase(componentName);
@@ -112,7 +111,6 @@ export const Default: Story = {
 }`,
 };
 
-// Создание директорий и файлов
 function createDirectoryContents(packagePath, files) {
     fs.mkdirSync(packagePath, { recursive: true });
     fs.mkdirSync(path.join(packagePath, 'src'), { recursive: true });

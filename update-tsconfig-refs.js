@@ -12,31 +12,24 @@ const updateTsConfig = (configName) => {
     // Читаем файл как строку
     const rawConfig = fs.readFileSync(tsconfigPath, 'utf8');
 
-    // Удаляем комментарии и trailing commas для корректного парсинга
-    const jsonContent = rawConfig
-        .replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '') // удаляем комментарии
-        .replace(/,(\s*[}\]])/g, '$1'); // удаляем trailing commas
+    const jsonContent = rawConfig.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, '').replace(/,(\s*[}\]])/g, '$1');
 
     const tsconfig = JSON.parse(jsonContent);
 
-    // Получаем список директорий
     const packages = fs.readdirSync(packagesDir).filter((file) => {
         const stats = fs.statSync(path.join(packagesDir, file));
         return stats.isDirectory() && !file.startsWith('.');
     });
 
-    // Обновляем references
     tsconfig.references = packages.map((pkg) => ({
         path: `./${pkg}/tsconfig.esm.json`,
     }));
 
-    // Сохраняем с отступами и trailing comma
     const updatedContent = JSON.stringify(tsconfig, null, 2).replace(/}$/g, '}\n');
 
     fs.writeFileSync(tsconfigPath, updatedContent);
     console.log(`✨ Updated references in ${configName}`);
 };
 
-// Обновляем оба конфига
 updateTsConfig('tsconfig.cjs.json');
 updateTsConfig('tsconfig.esm.json');
