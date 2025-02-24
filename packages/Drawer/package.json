@@ -1,0 +1,36 @@
+{
+  "name": "@surf-dev/ui-drawer",
+  "version": "0.1.0",
+  "description": "Surf base drawer",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "lint-staged": "15.0.2"
+  },
+  "files": [
+    "src",
+    "dist/esm",
+    "dist/cjs",
+    "./CHANGELOG.md"
+  ],
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/surfstudio/frontend-ui-kit.git",
+    "directory": "packages/Drawer"
+  },
+  "author": "SurfStudio LLC",
+  "license": "MIT",
+  "homepage": "https://github.com/surfstudio/frontend-ui-kit#readme",
+  "gitHead": "c103b5ec777f94ecce2c83c1f58fb3e35cf4bbd3"
+}

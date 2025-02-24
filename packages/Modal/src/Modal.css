@@ -1,0 +1,73 @@
+.modalOverlay {
+    padding: 0;
+    border: none;
+    background: rgba(0, 0, 0, 0.45);
+    width: 50%;
+    height: 50vh;
+}
+
+.modalOverlay::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.modalLayout {
+    background: white;
+    border-radius: 8px;
+    margin: 100px auto;
+    animation: modalFade 0.3s;
+}
+
+.modalLayout.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.modalContent {
+    position: relative;
+}
+
+.modalHeader {
+    padding: 16px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000d9;
+}
+
+.container {
+    padding: 24px;
+}
+
+.notOpen {
+    display: none;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Для центрированной модалки анимация другая */
+.modalLayout.centered {
+    animation: modalFadeCentered 0.3s;
+}
+
+@keyframes modalFadeCentered {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

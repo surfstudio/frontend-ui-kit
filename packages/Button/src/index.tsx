@@ -1,16 +1,10 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     isLoading?: boolean;
     buttonClassName?: string;
     containerClassName?: string;
-    slots?: {
-        prefix?: ReactNode;
-        content?: ReactNode;
-        suffix?: ReactNode;
-        loader?: ReactNode;
-    };
 }
 
 const Button = ({
@@ -20,32 +14,21 @@ const Button = ({
     isLoading = false,
     buttonClassName = '',
     containerClassName = '',
-    slots = {},
     onClick,
     ...props
 }: ButtonProps) => {
-    const { prefix: Prefix, content: Content, suffix: Suffix, loader: Loader } = slots;
-
     return (
         <button
             type={type}
-            className={`Button ${buttonClassName}`}
+            className={`button ${buttonClassName}`}
             disabled={disabled || isLoading}
             onClick={onClick}
             {...props}>
-            <div className={`ButtonContainer ${containerClassName}`}>
-                {isLoading ? (
-                    <>{Loader}</>
-                ) : (
-                    <>
-                        {Prefix}
-                        {Content}
-                        {Suffix}
-                    </>
-                )}
-            </div>
+            <div className={`buttonContentContainer ${containerClassName}`}>{children}</div>
         </button>
     );
 };
+
+Button.displayName = 'Button';
 
 export default Button;
