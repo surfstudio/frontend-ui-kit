@@ -1,48 +1,51 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Select, { SelectProps } from './index.tsx';
-import { useState } from 'react';
+import Select from './index.tsx';
+import './Select.css';
 
-type TSelectType = typeof Select;
-
-const SelectWithState = ({ ...args }: SelectProps) => {
-    const [value, setValue] = useState<string>();
-
-    const handleChange = (newValue: string) => {
-        setValue(newValue);
-    };
-
-    return <Select {...args} value={value} onChange={handleChange} />;
-};
-
-const meta: Meta<TSelectType> = {
+const meta: Meta<typeof Select> = {
     title: 'Atoms/Select',
     component: Select,
-    args: {
-        options: [
-            { value: '1', label: 'Jack' },
-            { value: '2', label: 'Tom' },
-            { value: '3', label: 'Steven' },
-        ],
-        placeholder: 'Select option',
-    },
-    render: ({ ...args }) => <SelectWithState {...args} />,
     tags: ['autodocs'],
 };
 
 export default meta;
+type Story = StoryObj<typeof Select>;
 
-type TStory = StoryObj<TSelectType>;
+const defaultOptions = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
+];
 
-export const Default: TStory = {};
-
-export const Disabled: TStory = {
+export const Default: Story = {
     args: {
-        disabled: true,
+        options: defaultOptions,
+        placeholder: 'Select an option',
+        onChange: (value) => console.log('Selected:', value),
     },
 };
 
-export const WithIcon: TStory = {
+export const WithCustomIcon: Story = {
     args: {
-        icon: 'icon',
+        options: defaultOptions,
+        placeholder: 'Custom icon',
+        onChange: (value) => console.log('Selected:', value),
+    },
+};
+
+export const Disabled: Story = {
+    args: {
+        options: defaultOptions,
+        placeholder: 'Disabled select',
+        disabled: true,
+        onChange: (value) => console.log('Selected:', value),
+    },
+};
+
+export const WithValue: Story = {
+    args: {
+        options: defaultOptions,
+        value: '2',
+        onChange: (value) => console.log('Selected:', value),
     },
 };

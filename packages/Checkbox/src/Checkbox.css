@@ -1,0 +1,52 @@
+.checkboxContainer {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkboxContainer span[aria-hidden="true"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1677ff;
+}
+
+.checkboxContainer input:checked + span {
+    color: #1677ff;
+}
+
+.checkboxContainer input:disabled + span {
+    color: #d9d9d9;
+    cursor: not-allowed;
+}
+
+.checkboxText {
+    margin-left: 8px;
+    color: rgba(0, 0, 0, 0.88);
+}
+
+.checkboxContainer input:disabled ~ .checkboxText {
+    color: rgba(0, 0, 0, 0.25);
+    cursor: not-allowed;
+}
+
+.checkboxContainer div {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    border-radius: 4px;
+    opacity: 0.2;
+    pointer-events: none;
+}

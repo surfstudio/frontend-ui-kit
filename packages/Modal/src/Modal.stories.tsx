@@ -1,41 +1,49 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import Modal, { ModalProps } from './index.tsx';
+import Modal from './index.tsx';
+import './Modal.css';
 
-type TModalType = typeof Modal;
+const meta: Meta<typeof Modal> = {
+    title: 'Components/Modal',
+    component: Modal,
+    tags: ['autodocs'],
+};
 
-const ModalStory = ({ children, ...args }: ModalProps) => {
+export default meta;
+type Story = StoryObj<typeof Modal>;
+
+// Wrapper компонент для управления состоянием модального окна
+const ModalWrapper = (props: any) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
-            <button onClick={() => setIsOpen(true)}>Open modal</button>
-            <Modal {...args} isOpen={isOpen} onCancel={() => setIsOpen(false)}>
-                {children}
-            </Modal>
+            <button onClick={() => setIsOpen(true)}>Open Modal</button>
+            <Modal {...props} isOpen={isOpen} onCancel={() => setIsOpen(false)} />
         </>
     );
 };
 
-const meta: Meta<TModalType> = {
-    title: 'Atoms/Modal',
-    component: Modal,
-    tags: ['autodocs'],
-    args: {
-        title: 'Modal title',
-        children: 'Modal content',
-    },
-    render: ModalStory,
+export const Default: Story = {
+    render: () => (
+        <ModalWrapper title="Default Modal">
+            <p>This is a default modal content</p>
+        </ModalWrapper>
+    ),
 };
 
-export default meta;
+export const Centered: Story = {
+    render: () => (
+        <ModalWrapper title="Centered Modal" centered>
+            <p>This modal is centered vertically</p>
+        </ModalWrapper>
+    ),
+};
 
-type TStory = StoryObj<TModalType>;
-
-export const Default: TStory = {};
-
-export const Centered: TStory = {
-    args: {
-        centered: true,
-    },
+export const CustomWidth: Story = {
+    render: () => (
+        <ModalWrapper title="Wide Modal" width={800}>
+            <p>This modal has custom width of 800px</p>
+        </ModalWrapper>
+    ),
 };
